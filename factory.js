@@ -10,7 +10,7 @@ export default function socketFactory (url, debug = true) {
   }
 
   function connect (dispatch, jwt = null) {
-    log('Connecting websocket...!')
+    log('Connecting websocket...')
     const query = `auth_token=${jwt}`
     socket.io = socketIo.connect(url, { query })
 
