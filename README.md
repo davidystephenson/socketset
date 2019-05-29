@@ -19,6 +19,7 @@ To use it:
 Here is an example which also includes the redux developer tools and the [`redux-thunk`](https://github.com/reduxjs/redux-thunk) package for illustrative purposes:
 
 ```
+import { applyMiddleware, compose, createStore } from 'redux'
 import reduxThunk from 'redux-thunk'
 import socketset from 'socketset'
 
@@ -43,11 +44,15 @@ store.dispatch(action)
 ```
 
 ### Dispatching actions from the server
-Whenever the server emits an message with the key `'action'` to the client, if the payload is a plain object, it will be dispatched directly to the redux store.
+Whenever the server emits an `'action'` event to the client, if the message is a plain object, it will be dispatched directly to the redux store.
 
 ```
 // Server side
-io.emit('action', { type: 'PING' })
+io.emit(
+  'action', // the event must be 'action'
+  { type: 'PING' } // This action object will be sent directly to your reducers.
+  // If they contain a 'case' for 'PING', it will be handled.
+)
 ```
 
 ### Configuring debug messages
@@ -55,5 +60,5 @@ By default, debug mode is on.
 If debug mode is on, you will see browser console logs confirming when you connecting, disconnecting, and receiving actions.
 To disable these logs, pass `false` as the second argument when initializing socketset.
 ```
-socketset('localhost:4000', false)
+socketset('localhost:4000', false) // Normal debug messages will not appear, though warnings about invalid actions will still appear.
 ```
