@@ -1,0 +1,22 @@
+{
+  "name": "socketset",
+  "version": "0.0.0",
+  "description": "Connect a socket.io server to a redux store.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/davidystephenson/socketset.git"
+  },
+  "author": "David Y. Stephenson",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/davidystephenson/socketset/issues"
+  },
+  "homepage": "https://github.com/davidystephenson/socketset#readme",
+  "dependencies": {
+    "socket.io-client": "^2.2.0"
+  }
+}
