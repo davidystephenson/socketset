@@ -1,6 +1,6 @@
 {
   "name": "socketset",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Connect a socket.io server to a redux store.",
   "main": "index.js",
   "scripts": {
